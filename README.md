@@ -1,24 +1,28 @@
 [![Video Tutorial](https://github.com/pushtechnology/tutorials/blob/master/data-store/video.png)](https://www.pushtechnology.com/blog/fine-grained-fan-out-and-replication-of-kafka-event-firehose-between-clusters/)
 
-# Fine-grained fan-out and replication of Kafka event firehose between clusters/sites.
+# Fine-grained fan-out and replication from a REST api to Kafka event cluster.
 
-Introduction to Diffusion Real-Time Event Stream through a simple application using [Diffusion](https://www.pushtechnology.com/product-overview) Cloud and Apache Kafka.
+Introduction to Diffusion Real-Time Event Stream through a simple application using [Diffusion](https://www.pushtechnology.com/product-overview) Cloud, Apache Kafka and [ESPN live REST api](https://gist.github.com/akeaswaran/b48b02f1c94f873c6655e7129910fc3b).
 
-A simple projects illustrating **real-time replication and fan-out** of foreign exchange (fx) event streams from Kafka cluster A to Kafka cluster B, through **Diffusion Cloud** instance via the use of our [Kafka Adapter](https://www.pushtechnology.com/wp-content/uploads/2020/08/Diffusion-Cloud-Kafka-adapter.pdf).
+A simple projects illustrating **real-time replication and fan-out** of ESPN sports live events from [ESPN live REST api](https://gist.github.com/akeaswaran/b48b02f1c94f873c6655e7129910fc3b) to a Kafka event cluster, through **Diffusion Cloud** instance via the use of our [Kafka Adapter](https://www.pushtechnology.com/wp-content/uploads/2020/08/Diffusion-Cloud-Kafka-adapter.pdf) and [REST Adapter](https://www.pushtechnology.com/legacy-systems/).
 
-These JavaScript code examples will help you publish fx events on real-time from a front-end app to a Kafka cluster A, consume from it and transform data on-the-fly via our powerful [Topic Views](https://docs.pushtechnology.com/docs/6.5.2/manual/html/designguide/data/topictree/topic_views.html) feature.
+This tutorial will help you consume **Sports Live Events** from [ESPN live **REST api**](https://gist.github.com/akeaswaran/b48b02f1c94f873c6655e7129910fc3b), **filter the portion of data that you are interested in, and transform it on-the-fly** via our powerful [**Topic Views**](https://docs.pushtechnology.com/docs/6.5.2/manual/html/designguide/data/topictree/topic_views.html). Then, simply deliver only the portion of the data you care about to a **Kafka cluster**, and reduce the data transfer by using our **Data-Deltas compression**, to deliver the same information with up to a **90% data savings**. 
 
-Although we provide a fx data simulation client using JavaScript, to populate Kafka cluster A, this tutorial purely focus on the **no-code solution** to deliver event data between remote Kafka sites/clusters where not all the firehose data from one site needs to be replicated/fanned-out to the other.
+This tutorial purely focus on the **no-code solution** to deliver event data between REST apis and Kafka clusters where not all the firehose data from the source needs to be replicated/fanned-out to Kafka.
 
 ![](https://raw.githubusercontent.com/diffusion-playground/kafka-integration-no-code/master/kafka-app-L1/images/kafkaL2.png)
 
 # Fine-grained distribution of Kafka event firehose with Topic Views
-**kafka-app-L1** introduces the concept of [**Topic Views**](https://docs.pushtechnology.com/docs/6.5.2/manual/html/designguide/data/topictree/topic_views.html), a dynamic mechanism to map part of a server's [Topic Tree](https://docs.pushtechnology.com/docs/6.5.2/manual/html/designguide/data/topictree/topic_tree.html) to another. This enables real-time data transformation before replicating to a remote cluster as well as to create dynamic data models based on on-the-fly data (eg: Kafka firehose data).
-This lesson also shows how to use our [**Kafka adapter**](https://www.pushtechnology.com/blog/connect-diffusion-with-apache-kafka/) to ingest and broadcast fx data using Diffusion Topic Views in order to consume what you need, not all the Kafka stream.
+This tutorial introduces the concept of [**Topic Views**](https://docs.pushtechnology.com/docs/6.5.2/manual/html/designguide/data/topictree/topic_views.html), a dynamic mechanism to map part of a server's [Topic Tree](https://docs.pushtechnology.com/docs/6.5.2/manual/html/designguide/data/topictree/topic_tree.html) to another. This enables real-time data transformation before replicating to a remote cluster as well as to create dynamic data models based on on-the-fly data (eg: Kafka firehose data, or REST api data sources).
+This lesson also shows how to use our [**REST Adapter**](https://www.pushtechnology.com/legacy-systems/) and our [**Kafka adapter**](https://www.pushtechnology.com/blog/connect-diffusion-with-apache-kafka/) to ingest and broadcast sporst data using Diffusion Topic Views in order to consume what you need.
 
 # Features used in this lesson
 
-## Step 1: Configure Kafka Adapter in Cloud to ingest from Kafka Cluster A
+## Step 1: Configure REST Adapter in Cloud to ingest from ESPN Sports live events
+### Go to: [Diffusion Cloud > Manage Service > Adapters > REST Adapter](https://dashboard.diffusion.cloud)
+![](./images/1.png)
+
+## Step X: Configure Kafka Adapter in Cloud to ingest from Kafka Cluster A
 ### Go to: [Diffusion Cloud > Manage Service > Adapters > Kafka Adapter > Ingest from Kafka](https://dashboard.diffusion.cloud)
 ![](https://raw.githubusercontent.com/diffusion-playground/kafka-integration-no-code/master/kafka-app-L1/images/ingest.png)
 
